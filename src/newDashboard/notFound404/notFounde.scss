@@ -1,0 +1,61 @@
+/*----------------------
+	10. Not-Found-404
+-----------------------*/
+.Not-found-Card.card {
+    margin-top: 20px;
+}
+
+p.first-content {
+	font-size: 230px;
+    text-align: center;
+    font-weight: 800;
+    color: #81C341;
+    margin-left: 244px;
+}
+p.second-content{
+	font-size: 230px;
+    font-weight: 800;
+    color: #81C341;
+
+}
+img.cat-image {
+    width: 180px;
+    height: 160px;
+	margin-top: 94px	;
+	margin-left: 94px;
+    /* background: green; */
+}
+p.content-p {font-size: 50px;
+    /* text-align: center; */
+    font-weight: 800;
+    position: absolute;
+    top: 325px;
+    left: 325px;
+    color: #81C341;
+}
+p.not-found-lorem {
+    text-align: center;
+    font-size: 12px;
+    margin-left: 116px;
+    color: gray;
+	
+}
+a.home-back {
+    border-radius: 1.5rem;
+    // width: 144px !important;
+    // height: 47px !important;
+    padding: 14px 54px 14px 42px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #81C341;
+    color: #fff;
+	margin-left: 390px;
+	margin-bottom: 10px !important;
+	
+}
+a.home-back:hover{
+	background-color: #ff7400;
+	color: white;
+
+}

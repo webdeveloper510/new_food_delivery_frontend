@@ -1,0 +1,47 @@
+
+$menuMainColor:#81C341;
+$menuTextColor:#777777;
+.menuCard{
+    border: 1px solid $menuTextColor;
+    &:hover{
+        border: 1px solid $menuMainColor;
+    }
+    span{
+        font-size: 14px;
+        color: $menuTextColor;
+    }
+}
+.menuBtn{
+    background-color: $menuMainColor;
+    color: whitesmoke;
+    border:0
+}
+.menuSearchInput {
+    box-shadow: none!important;
+    border: 0;
+    &:focus{
+        border:1px solid #777777 ;
+        border: 0;
+    }
+}
+.menuSearchBarIcon{
+    color: $menuMainColor;
+    font-weight: bolder;
+}
+.menuProductPrice{
+   color: $menuMainColor; 
+   font-weight: bolder;
+   color: #81C341;
+   font-weight: bolder;
+   font-size: 22px;
+
+}
+.menuStarReview{
+     color: $menuMainColor;
+}
+.img-fluid {
+    max-width: 74% !important;
+    margin-left: 40px !important;
+    /* text-align: center; */
+    height: auto !important;
+}

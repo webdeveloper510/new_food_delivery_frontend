@@ -1,0 +1,156 @@
+/*----------------------
+	10. Order-History
+-----------------------*/
+.media-bx img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+}
+p.date-table {
+    font-size: 12px;
+    // font-weight: 600;
+    color: gray !important;
+	padding-top: 34px !important;
+}
+p.table-address {
+	font-size: 13px;
+    // font-weight: 600;
+    color: gray !important;
+	padding-top: 34px !important;
+}
+svg.addres-location {
+   color: #81C341;
+	
+}
+p.total-prize{
+	font-size: 11px;
+    font-weight: 600;
+    color: #81C341 ;
+	padding-top: 34px !important;
+
+}
+.button-Delivering{
+	border-radius: 0.5rem;
+    width: 120px;
+    height: 36px;
+    padding: 8px 6px 6px 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: #81C341;
+    background: transparent;
+    border: 1px solid #81C341;
+    color: #81C341;
+    margin-top: 20px;	
+}
+.button-Delivering:hover {
+	background-color: #81C341;
+	color: white;
+}
+.button-canceled{
+    border-radius: 0.5rem;
+    width: 120px;
+    height: 36px;
+    padding: 8px 6px 6px 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: #9b0c07;
+    background: transparent;
+    border: 1px solid #9b0c07;
+    color: #9b0c07;
+    margin-top: 20px;	
+}
+.button-canceled:hover {
+	background-color: #9b0c07;
+	color: white;
+}
+.button-status {
+	border-radius: 0.5rem;
+    width: 120px;
+    height: 36px;
+    padding: 8px 6px 6px 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: #1FBF75;
+    background: transparent;
+    border: 1px solid #1FBF75;
+    color: #1FBF75;
+    margin-top: 20px;
+    /* margin-left: 10px; */
+
+}
+.button-status:hover {
+	background-color: #1FBF75;
+	color: white;
+}
+button#dropdown-basicAcntion {
+    background: none;
+    border: none;
+   
+}
+svg.action-table {
+    color: #81C341;
+    font-size: 20px;
+    margin-top: 28px;
+}
+.button-status01{
+	border-radius: 0.5rem;
+    width: 120px;
+    height: 36px;
+    padding: 8px 6px 6px 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: #81C341;
+    background: transparent;
+    border: 1px solid #81C341;
+    color: #191a19;
+    margin-top: 20px;	
+}
+.button-status01:hover {
+	background-color: #81C341;
+	color: white;
+}
+.history-order.dropdown-menu.show {
+    font-size: 14px;
+}
+table.order-history-table.table.table-striped.table-bordered.table-hover {
+    border-radius: 20px !important;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+	font-size: 15px;
+    font-weight: 800;
+    color: #3D4152;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+button#dropdown-basicDataOrder {
+	padding-left: 11px;
+    padding-right: 41px;
+    line-height: 1;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5rem;
+    margin-left: 1.5rem;
+    color: #f8f0f0;
+    border: 1px solid #e7d8d8 !important;
+    height: 3rem;
+	background-color: #81C341;
+	margin-top: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.table-bordered {
+    border: 1px solid #c5c8cf !important;
+    border-radius: 10px;
+}
+h5.mb-0 {
+    font-size: 12px;
+}
+.vl {
+    border-left: 1px solid #aeafae;
+    height: 100px;
+  }
