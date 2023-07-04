@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { BsArrowRight } from 'react-icons/bs';
 import {PiBowlFoodBold} from 'react-icons/pi';
 import {ImPacman} from 'react-icons/im';
+import {GiStarProminences} from 'react-icons/gi';
 
 // //Import Scrollbar
 import SimpleBar from "simplebar-react";
@@ -222,6 +223,14 @@ const SidebarContent = props => {
                 </li> */}
               </ul>
 
+            </li>
+
+            <li>
+              <Link to="/promotioneZone">
+              <GiStarProminences className="Restaurant-icons" />
+              <span>{props.t("Promotione Zone")}</span> 
+              </Link>
+          
             </li>
             {/* <li className="menu-title">{props.t("Apps")}</li> */}
           </ul>

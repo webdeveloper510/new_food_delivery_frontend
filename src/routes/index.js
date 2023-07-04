@@ -35,6 +35,9 @@ import RequestedMenuItems from "newDashboard/Management/RequestedMenuItems/Reque
 import Roles from "newDashboard/Management/Roles/Roles";
 import Staff from "newDashboard/Management/Staff/Staff";
 
+//PromotioneZone
+import PromotioneZone from "newDashboard/PromotioneZone/PromotioneZone";
+
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
@@ -58,6 +61,10 @@ const authProtectedRoutes = [
   { path: "/requestedMenuItems", component: <RequestedMenuItems />},
   {path: "/roles", component: <Roles />},
   {path: "/Staff", component: <Staff />},
+
+  //PromotioneZone
+  { path: "/promotioneZone", component: <PromotioneZone />},
+
 
 
   // this route should be at the end of all other routes
