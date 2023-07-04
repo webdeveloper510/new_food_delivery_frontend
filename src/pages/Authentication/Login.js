@@ -17,7 +17,8 @@ import { loginUser, socialLogin } from "../../store/actions";
 
 // import images
 import profile from "assets/images/profile-img.png";
-import logo from "assets/images/logo.svg";
+// import logo from "assets/images/logo.svg";
+import logo from "../../assets/foodImages/signup/mainLogoIcon.png";
 import "../../pages/Authentication/register.scss";
 
 //config
@@ -57,11 +58,11 @@ const Login = props => {
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
-  
+
     onSubmit: async (values, { resetForm }) => {
       try {
         // Move the API call here
-        const response = await axios.post("http://localhost:8080/api/merchant/auth/login", {
+        const response = await axios.post(API.BASE_URL + 'merchant/auth/login', {
           email: values.email,
           password: values.password,
         }, {
@@ -70,10 +71,10 @@ const Login = props => {
             "Authorization": `Bearer ${SignupToken}`,
           },
         });
-  
+
         console.log(response, '============>data');
         console.log(response.data, '============>data');
-  
+
         if (response.data.status === 200) {
           localStorage.setItem("loginToken", response.data.token);
           notify(); // Call the notify function here
@@ -84,7 +85,7 @@ const Login = props => {
           toast.error(response.data.error);
           console.log("Error");
         }
-        
+
         // After the API call, you can proceed with the navigation or resetForm if needed
         dispatch(loginUser(values, response.data.status === 200 ? props.router.navigate : null));
         // resetForm();
@@ -98,8 +99,8 @@ const Login = props => {
       }
     }
   });
-  
-  
+
+
 
   const signIn = type => {
     dispatch(socialLogin(type, props.router.navigate));
@@ -110,7 +111,7 @@ const Login = props => {
     signIn(type);
   };
 
-  //handleTwitterLoginResponse
+  //handleTwitterLoginRespons
   // const twitterResponse = e => {}
 
   return (
@@ -135,7 +136,7 @@ const Login = props => {
                 </div>
                 <CardBody className="pt-0">
                   <div>
-                    <Link to="/" className="logo-light-element">
+                    <Link to="/">
                       <div className="avatar-md profile-user-wid mb-4">
                         <span className="avatar-title rounded-circle bg-light">
                           <img
@@ -157,8 +158,6 @@ const Login = props => {
                         return false;
                       }}
                     >
-                      
-
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
                         <Input
@@ -294,8 +293,8 @@ const Login = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} stoke. work with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by FOD
                 </p>
               </div>
             </Col>

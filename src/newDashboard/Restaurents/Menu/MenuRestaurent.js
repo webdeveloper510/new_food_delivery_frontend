@@ -35,12 +35,12 @@ const MenuRestaurent = () => {
     const dispatch = useDispatch();
     const myStore = useSelector((state) => state.showCardReducer.card);
     console.log(myStore, "myStore======>");
-  
+
     const handleHideModal = () => {
-      dispatch(hideAddMenuCard());
+        dispatch(hideAddMenuCard());
     };
 
-  
+
 
 
     /******* start searchData ****** */
@@ -71,8 +71,8 @@ const MenuRestaurent = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
- 
+
+
     // Form validation 
     const validation = useFormik({
         // enableReinitialize : use this flag when initial values needs to be changed
@@ -80,19 +80,16 @@ const MenuRestaurent = () => {
 
         initialValues: {
             Itemtitle: '',
-            itempricing: '',
-            deliveryCharge: '',
-            gst: '',
-            phoneNumber: '',
-            emailAddress: '',
+            itemImages: '',
+            categoryDescription: '',
+            // deliveryCharge: '',
+            // gst: '',
+            // emailAddress: '',
         },
         validationSchema: Yup.object({
             Itemtitle: Yup.string().required("Please Enter Your Item Title"),
-            itempricing: Yup.string().required("Please Enter Your Item Pricing"),
-            deliveryCharge: Yup.string().required("Please Enter Your Delivery Charge"),
-            gst: Yup.string().required("Please Enter Your Gst"),
-            phoneNumber: Yup.string().required("Please Enter Your Phone Number"),
-            emailAddress: Yup.string().required("Please Enter Your Email Address"),
+            itemImages: Yup.string().required("Please Enter Your Item Iamges"),
+            categoryDescription: Yup.string().required("Please Enter Your Category Description"),
         }),
         onSubmit: (values) => {
             console.log("values", values);
@@ -190,7 +187,7 @@ const MenuRestaurent = () => {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault2"
-                                       
+
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault2">
                                         Veg
@@ -198,7 +195,6 @@ const MenuRestaurent = () => {
                                 </div>
                             </Col>
                         </Row>
-
                         <Row style={{ marginTop: "20px" }}>
                             <Col md="12">
                                 <FormGroup className="mb-3">
@@ -223,89 +219,24 @@ const MenuRestaurent = () => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col md="4">
-                                <FormGroup className="mb-3">
-                                    <Label htmlFor="validationCustom04">Item Pricing</Label>
-                                    <Input
-                                        name="itempricing"
-                                        placeholder="Item Pricing"
-                                        type="text"
-                                        className="form-control"
-                                        id="validationCustom04"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.itempricing || ""}
-                                        invalid={
-                                            validation.touched.itempricing && validation.errors.itempricing ? true : false
-                                        }
-                                    />
-                                    {validation.touched.itempricing && validation.errors.itempricing ? (
-                                        <FormFeedback type="invalid">{validation.errors.itempricing}</FormFeedback>
-                                    ) : null}
-                                </FormGroup>
-                            </Col>
-                            <Col md="4">
-                                <FormGroup className="mb-3">
-                                    <Label htmlFor="validationCustom03">Delivery Charge</Label>
-                                    <Input
-                                        name="deliveryCharge"
-                                        placeholder="Delivery Charge"
-                                        type="text"
-                                        className="form-control"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.deliveryCharge || ""}
-                                        invalid={
-                                            validation.touched.deliveryCharge && validation.errors.deliveryCharge ? true : false
-                                        }
-                                    />
-                                    {validation.touched.deliveryCharge && validation.errors.deliveryCharge ? (
-                                        <FormFeedback type="invalid">{validation.errors.deliveryCharge}</FormFeedback>
-                                    ) : null}
-                                </FormGroup>
-                            </Col>
-
-                            <Col md="4">
-                                <FormGroup className="mb-3">
-                                    <Label htmlFor="validationCustom05">GST</Label>
-                                    <Input
-                                        name="gst"
-                                        placeholder="GST"
-                                        type="text"
-                                        className="form-control"
-                                        id="validationCustom05"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.gst || ""}
-                                        invalid={
-                                            validation.touched.gst && validation.errors.gst ? true : false
-                                        }
-                                    />
-                                    {validation.touched.gst && validation.errors.gst ? (
-                                        <FormFeedback type="invalid">{validation.errors.gst}</FormFeedback>
-                                    ) : null}
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row>
                             <Col md="12">
                                 <FormGroup className="mb-3">
-                                    <Label htmlFor="validationCustom01">Phone Number</Label>
+                                    <Label htmlFor="validationCustom01">Category Images</Label>
                                     <Input
-                                        name="phoneNumber"
+                                        name="itemImages"
                                         placeholder="Phone Number"
-                                        type="text"
+                                        type="file"
                                         className="form-control"
                                         id="validationCustom01"
                                         onChange={validation.handleChange}
                                         onBlur={validation.handleBlur}
-                                        value={validation.values.phoneNumber || ""}
+                                        value={validation.values.itemImages || ""}
                                         invalid={
-                                            validation.touched.phoneNumber && validation.errors.phoneNumber ? true : false
+                                            validation.touched.itemImages && validation.errors.itemImages ? true : false
                                         }
                                     />
-                                    {validation.touched.phoneNumber && validation.errors.phoneNumber ? (
-                                        <FormFeedback type="invalid">{validation.errors.phoneNumber}</FormFeedback>
+                                    {validation.touched.itemImages && validation.errors.itemImages ? (
+                                        <FormFeedback type="invalid">{validation.errors.itemImages}</FormFeedback>
                                     ) : null}
                                 </FormGroup>
                             </Col>
@@ -313,33 +244,33 @@ const MenuRestaurent = () => {
                         <Row>
                             <Col md="12">
                                 <FormGroup className="mb-3">
-                                    <Label htmlFor="validationCustom01">Email Address</Label>
+                                    <Label htmlFor="validationCustom01">Category Description</Label>
                                     <textarea
-                                        name="emailAddress"
+                                        name="categoryDescription"
                                         rows="3"
-                                        placeholder="Email Address"
+                                        placeholder="Category Description"
                                         type="text"
                                         className="form-control"
                                         id="validationCustom01"
                                         onChange={validation.handleChange}
                                         onBlur={validation.handleBlur}
-                                        value={validation.values.emailAddress || ""}
+                                        value={validation.values.categoryDescription || ""}
                                         invalid={
-                                            validation.touched.emailAddress && validation.errors.emailAddress ? true : false
+                                            validation.touched.categoryDescription && validation.errors.categoryDescription ? true : false
                                         }
                                     />
-                                    {validation.touched.emailAddress && validation.errors.emailAddress ? (
-                                        <FormFeedback type="invalid">{validation.errors.emailAddress}</FormFeedback>
+                                    {validation.touched.categoryDescription && validation.errors.categoryDescription ? (
+                                        <FormFeedback type="invalid">{validation.errors.categoryDescription}</FormFeedback>
                                     ) : null}
                                 </FormGroup>
                             </Col>
                         </Row>
 
-                        <Modal.Footer style={{ marginTop: "20"}}>
-                            <Button  onClick={handleClose} className="add-menu-new-close">
+                        <Modal.Footer style={{ marginTop: "20" }}>
+                            <Button onClick={handleClose} className="add-menu-new-close">
                                 Close
                             </Button>
-                            <Button type="submit"  className="add-menu-new-button">
+                            <Button type="submit" className="add-menu-new-button">
                                 Save Changes
                             </Button>
 

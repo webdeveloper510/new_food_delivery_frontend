@@ -1,0 +1,64 @@
+button#dropdown-basicDataOrder-Choose-shop {
+    padding-left: 11px;
+    padding-right: 27px;
+    line-height: 1;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5rem;
+    /* margin-left: 1.5rem; */
+    color: #0f100e;
+    border: 1px solid #81C341 !important;
+    height: 2.5rem;
+    /* background-color: #81C341; */
+    background: none;
+    margin-top: 4px;
+    font-size: 12px;
+    /* font-weight: 500; */
+    margin-bottom: 20px;
+}
+svg.Choose-shop {
+    padding-left: 2px;
+    margin-top: 5px;
+    margin-left: 6px;
+    /* color: #81c341; */
+}
+.shop-apply {
+    padding-left: 23px;
+    padding-right: 26px;
+    line-height: 1;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5rem;
+    margin-left: 1.5rem;
+    color: #f8f0f0;
+    border: 1px solid #e7d8d8 !important;
+    height: 2.8rem;
+    background-color: #428103 !important;
+    margin-top: 4px;
+    font-size: 13px;
+   
+}
+p.total-shop-prize {
+    font-size: 13px;
+    // color: #428103;
+}
+p.item-name {
+    font-size: 13px;
+    color: #428103;
+}
+svg.action-shop-table {
+    color: #81C341;
+    font-size: 20px;
+}
+p.item-name-shop {
+    font-size: 13px;
+}
+
+head td, .table-bordered thead th {
+    border-bottom-width: 2px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #3D4152;
+    font-weight: 600;
+    font-family: sans-serif;
+}

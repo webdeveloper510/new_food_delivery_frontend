@@ -60,7 +60,7 @@ const ForgetPasswordPage = props => {
             <Col md={8} lg={6} xl={5}>
               <Card className="overflow-hidden">
                 <div className="bg-primary bg-softbg-soft-primary">
-                  <Row  className="register-background">
+                  <Row className="register-background">
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
@@ -147,8 +147,8 @@ const ForgetPasswordPage = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} stoke. work with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by FOD
                 </p>
               </div>
             </Col>

@@ -1,0 +1,21 @@
+.MuiSwitch-colorPrimary.Mui-checked {
+    color: #81c341 !important;
+    /* background-color: green; */
+}
+MuiSwitch-switchBase {
+    color: #81c341 !important;
+    top: 0;
+    left: 0;
+    /* color: #fafafa; */
+    z-index: 1;
+    position: absolute;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiSwitch-switchBase {
+    top: 0;
+    left: 0;
+    color: #81c341 !important;
+    z-index: 1;
+    position: absolute;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}

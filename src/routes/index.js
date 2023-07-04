@@ -30,6 +30,10 @@ import Dashboard from "../pages/Dashboard/index";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//Management
+import RequestedMenuItems from "newDashboard/Management/RequestedMenuItems/RequestedMenuItems";
+import Roles from "newDashboard/Management/Roles/Roles";
+import Staff from "newDashboard/Management/Staff/Staff";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -49,6 +53,11 @@ const authProtectedRoutes = [
 
   // //profile
   { path: "/profile", component: <UserProfile /> },
+
+  //Managemet
+  { path: "/requestedMenuItems", component: <RequestedMenuItems />},
+  {path: "/roles", component: <Roles />},
+  {path: "/Staff", component: <Staff />},
 
 
   // this route should be at the end of all other routes
