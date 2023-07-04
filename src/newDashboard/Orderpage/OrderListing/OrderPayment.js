@@ -33,7 +33,7 @@ function OrderPayment() {
                     <td>{e.deliveryTime} </td>
                     <td>{e.customerName}</td>
                     <td>{e.customerContact}</td>
-                    <td>{e.action}</td>
+                    <td><button className='btn btn-primary'>{e.action}</button></td>
                    </tr>
                      </>
                 )

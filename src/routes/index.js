@@ -38,6 +38,13 @@ import Staff from "newDashboard/Management/Staff/Staff";
 //PromotioneZone
 import PromotioneZone from "newDashboard/PromotioneZone/PromotioneZone";
 
+//Orders
+import ActiveOrder from "newDashboard/Orderpage/ActiveOrder/ActiveOrder";
+import PastOrder from "newDashboard/Orderpage/PastOrder/PastOrder";
+import OrderPayment from "newDashboard/Orderpage/OrderListing/OrderPayment";
+import OrderListing from "newDashboard/Orderpage/OrderListing/OrderListing";
+import ReadyOrder from "newDashboard/Orderpage/ReadyOrder/ReadyOrder";
+
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
@@ -64,8 +71,15 @@ const authProtectedRoutes = [
 
   //PromotioneZone
   { path: "/promotioneZone", component: <PromotioneZone />},
-
-
+ 
+  //Orders
+  { path: "/activeOrder", component: <ActiveOrder />},
+  { path: "/pastOrder", component: <PastOrder />},
+  { path: "/orderPayment", component: <OrderPayment />},
+  { path: "/orderListing", component: <OrderListing />},
+  { path: "/readyOrder", component: <ReadyOrder />},
+ 
+ 
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name

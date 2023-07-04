@@ -2,7 +2,8 @@
 
    $backgroundColo:"#a9bb97";
 .accordians{
-    box-shadow: 5px 5px ;
+  border-bottom: 4px solid #93fa2b;
+  border-right: 4px solid #93fa2b;
     
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -26,7 +27,7 @@
 
 .header{
     &:hover{
-        background:#79829c;;
+      background:#008b17;
        
 
     }

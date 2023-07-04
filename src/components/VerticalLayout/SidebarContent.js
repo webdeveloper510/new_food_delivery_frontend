@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import { BsArrowRight } from 'react-icons/bs';
-import {PiBowlFoodBold} from 'react-icons/pi';
-import {ImPacman} from 'react-icons/im';
-import {GiStarProminences} from 'react-icons/gi';
+import { BsArrowRight, BsBorderWidth } from 'react-icons/bs';
+import { PiBowlFoodBold } from 'react-icons/pi';
+import { ImPacman } from 'react-icons/im';
+import { GiStarProminences } from 'react-icons/gi';
 
 // //Import Scrollbar
 import SimpleBar from "simplebar-react";
@@ -184,7 +184,7 @@ const SidebarContent = props => {
             </li>
             <li>
               <Link to="/#" className="has-arrow">
-              <PiBowlFoodBold className="Restaurant-icons" />
+                <PiBowlFoodBold className="Restaurant-icons" />
                 <span>{props.t("Restaurant")}</span>
               </Link>
               <ul className="sub-menu">
@@ -205,7 +205,7 @@ const SidebarContent = props => {
             </li>
             <li>
               <Link to="/#" className="has-arrow">
-              <ImPacman className="Restaurant-icons" />
+                <ImPacman className="Management-icons" />
                 <span>{props.t("Management")}</span>
               </Link>
               <ul className="sub-menu">
@@ -218,19 +218,37 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/Staff" ><BsArrowRight className="arroesubmenu" /> {props.t("Staff")}</Link>
                 </li>
+              </ul>
+
+            </li>
+            <li>
+              <Link to="/#" className="has-arrow">
+                <BsBorderWidth className="Orders-icons" />
+                <span>{props.t("Orders")}</span>
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/activeOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Order-Menu")}</Link>
+                </li>
                 {/* <li>
-                  <Link to="#" ><BsArrowRight className="arroesubmenu" /> {props.t("Setting")}</Link>
+                  <Link to="/pastOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Past Order")}</Link>
                 </li> */}
+                <li>
+                  <Link to="/orderPayment" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Payment")}</Link>
+                </li>
+                <li>
+                  <Link to="/orderListing" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Listing")}</Link>
+                </li>
               </ul>
 
             </li>
 
             <li>
               <Link to="/promotioneZone">
-              <GiStarProminences className="Restaurant-icons" />
-              <span>{props.t("Promotione Zone")}</span> 
+                <GiStarProminences className="Restaurant-icons" />
+                <span>{props.t("Promotione Zone")}</span>
               </Link>
-          
+
             </li>
             {/* <li className="menu-title">{props.t("Apps")}</li> */}
           </ul>
