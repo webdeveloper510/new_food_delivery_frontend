@@ -10,7 +10,7 @@ import "../Menu/menu.scss";
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { showAddMenuCard, hideAddMenuCard } from "../../../store/menu/actions";
 
 
@@ -33,15 +33,12 @@ import { useFormik } from "formik";
 const MenuRestaurent = () => {
 
     const dispatch = useDispatch();
-    const myStore = useSelector((state) => state.showCardReducer.card);
+    const myStore = useSelector((state) => state.showCardReducer);
     console.log(myStore, "myStore======>");
 
     const handleHideModal = () => {
         dispatch(hideAddMenuCard());
     };
-
-
-
 
     /******* start searchData ****** */
     const [searchVal, setSearchVal] = useState('');

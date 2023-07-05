@@ -1,15 +1,17 @@
-const menuCardAddState = () => ({
-    card: false,
-})
+import { SHOW_CARD, HIDE_CARD } from "./actionTypes";
 
-export const showCardReducer = (state = menuCardAddState, action) => {
+const menuCardAddState = {
+    card: false,
+};
+
+const showCardReducer = (state = menuCardAddState, action) => {
     switch (action.type) {
-        case 'SHOW':
+        case 'SHOW_CARD':
             return {
                 ...state,
                 card: true,
             };
-        case 'HIDE':
+        case 'HIDE_CARD':
             return {
                 ...state,
                 card: false,

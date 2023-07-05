@@ -10,8 +10,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import store from "./store";
 
-//my store
-import myStore from "newDashboard/Auth/utill/myStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

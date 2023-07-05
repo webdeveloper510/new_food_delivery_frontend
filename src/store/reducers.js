@@ -16,7 +16,7 @@ import ecommerce from "./e-commerce/reducer";
 import Dashboard from "./dashboard/reducer";
 
 //menu
-import showCardReducer from "./menu/reducers";
+import showCardReducer from "./menu/reducer";
 
 const rootReducer = combineReducers({
   // public

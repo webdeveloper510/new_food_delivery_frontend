@@ -34,4 +34,4 @@ function OrderHelpButton() {
   )
 }
 
-export default OrderHelpButton;
+export default OrderHelpButton

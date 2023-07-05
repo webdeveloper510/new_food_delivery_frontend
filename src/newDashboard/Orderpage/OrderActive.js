@@ -11,7 +11,7 @@ function OrderActive() {
   return (
     
     <div className='container' style={{paddingBottom:'70px'}}>
-      <div className='row py-2 bg-secondary  text-light'>
+      <div className='row py-2  text-light' style={{background:'#a9bb97'}}>
         <div className='col-6 text-center'>New</div>
         <div className='col-6 text-center'>Preparing</div>
       </div>
@@ -51,7 +51,7 @@ function OrderActive() {
                   <div className='row '>
                     <Accordion  className='py-3 my-2 rounded accordians'>
                       <Accordion.Item eventKey="0" >
-                        <Accordion.Header className='py-3' >
+                        <Accordion.Header className='pb-3' >
                              <div className='d-flex position-relative justify-content-between w-75 py-1 px-2'>
                                 <h6> Order {e.orderId} </h6>
                                 <p>{e.items} items</p>

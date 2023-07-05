@@ -44,6 +44,7 @@ import PastOrder from "newDashboard/Orderpage/PastOrder/PastOrder";
 import OrderPayment from "newDashboard/Orderpage/OrderListing/OrderPayment";
 import OrderListing from "newDashboard/Orderpage/OrderListing/OrderListing";
 import ReadyOrder from "newDashboard/Orderpage/ReadyOrder/ReadyOrder";
+import Setting from "newDashboard/Settings/Setting";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -78,6 +79,7 @@ const authProtectedRoutes = [
   { path: "/orderPayment", component: <OrderPayment />},
   { path: "/orderListing", component: <OrderListing />},
   { path: "/readyOrder", component: <ReadyOrder />},
+  { path: "/setting", component: <Setting/>},
  
  
 

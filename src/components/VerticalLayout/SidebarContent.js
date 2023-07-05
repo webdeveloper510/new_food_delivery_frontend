@@ -200,6 +200,9 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/orderListing" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Listing")}</Link>
                 </li>
+                <li>
+                  <Link to="/setting" ><BsArrowRight className="arroesubmenu" /> {props.t("Setting")}</Link>
+                </li>
               </ul>
 
             </li>

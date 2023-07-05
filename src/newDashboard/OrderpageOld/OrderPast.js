@@ -7,7 +7,7 @@ function OrderPast() {
   return (
      
     <div className='container' style={{paddingBottom:'70px'}}>
-      <div className='row py-2   text-light 'style={{background:'#a9bb97'}} >
+      <div className='row py-2   text-light bg-secondary' >
         <div className='col-6 text-center'  style={{color:'green '}}>Complete Order</div>
         <div className='col-6 text-center  ' style={{color:'#ea3c53 '}} > Ready Order</div>
       </div>
