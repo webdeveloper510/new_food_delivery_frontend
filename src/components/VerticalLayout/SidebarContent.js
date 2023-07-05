@@ -191,15 +191,15 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/menu-data" ><BsArrowRight className="arroesubmenu" /> {props.t("Menu")}</Link>
                 </li>
-                {/* <li>
-                  <Link to="#" ><BsArrowRight className="arroesubmenu" /> {props.t("Orders")}</Link>
+                <li>
+                  <Link to="/activeOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Order-Menu")}</Link>
                 </li>
                 <li>
-                  <Link to="#" ><BsArrowRight className="arroesubmenu" /> {props.t("Reviews")}</Link>
+                  <Link to="/orderPayment" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Payment")}</Link>
                 </li>
                 <li>
-                  <Link to="#" ><BsArrowRight className="arroesubmenu" /> {props.t("Setting")}</Link>
-                </li> */}
+                  <Link to="/orderListing" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Listing")}</Link>
+                </li>
               </ul>
 
             </li>
@@ -221,27 +221,27 @@ const SidebarContent = props => {
               </ul>
 
             </li>
-            <li>
+            {/* <li>
               <Link to="/#" className="has-arrow">
                 <BsBorderWidth className="Orders-icons" />
                 <span>{props.t("Orders")}</span>
               </Link>
-              <ul className="sub-menu">
-                <li>
+              <ul className="sub-menu"> */}
+                {/* <li>
                   <Link to="/activeOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Order-Menu")}</Link>
-                </li>
+                </li> */}
                 {/* <li>
                   <Link to="/pastOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Past Order")}</Link>
                 </li> */}
-                <li>
+                {/* <li>
                   <Link to="/orderPayment" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Payment")}</Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link to="/orderListing" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Listing")}</Link>
-                </li>
-              </ul>
+                </li> */}
+              {/* </ul>
 
-            </li>
+            </li> */}
 
             <li>
               <Link to="/promotioneZone">

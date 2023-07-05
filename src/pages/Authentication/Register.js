@@ -36,7 +36,7 @@ const Register = props => {
 
 
   //meta title
-  document.title = "Register | Skote - React Admin & Dashboard Template";
+  document.title = "Register | Users - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -157,7 +157,7 @@ const Register = props => {
                     <Col className="col-7">
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Free Register</h5>
-                        <p className="get-content">Get your free Skote account now.</p>
+                        <p className="get-content">Get your free Users account now.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -347,7 +347,7 @@ const Register = props => {
 
                       <div className="mt-4 text-center">
                         <p className="mb-0">
-                          By registering you agree to the Skote{" "}
+                          By registering you agree to the Users{" "}
                           <Link to="#" className="text-primary">
                             Terms of Use
                           </Link>
@@ -365,7 +365,7 @@ const Register = props => {
                   </Link>
                 </p>
                 <p>
-                  © {new Date().getFullYear()} stoke. work with{" "}
+                  © {new Date().getFullYear()} Users. work with{" "}
                   <i className="mdi mdi-heart text-danger" /> by FOD
                 </p>
               </div>

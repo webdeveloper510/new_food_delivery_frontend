@@ -216,7 +216,7 @@ const Dashboard = props => {
       </div>
 
       {/* subscribe ModalHeader */}
-      <Modal
+      {/* <Modal
         isOpen={subscribemodal}
         role="dialog"
         autoFocus={true}
@@ -265,7 +265,7 @@ const Dashboard = props => {
             </div>
           </div>
         </div>
-      </Modal>
+      </Modal> */}
 
       <Modal
         isOpen={modal}
