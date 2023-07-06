@@ -13,7 +13,7 @@ function OrderHeader() {
  },[color])
   return (
     <div>
-      <nav className="navbar navbar-expand-lg text-light pb-0  " style={{ background: '#81C341' }}>
+      <nav className="navbar navbar-expand-lg text-light pb-0   bg-secondary" style={{ background: '#81C341' ,marginTop:'70px'}}>
         <div className="container-fluid">
           <button className="navbar-toggler bg-light mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

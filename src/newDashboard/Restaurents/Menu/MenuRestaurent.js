@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { BiDownArrow } from "react-icons/bi";
 import Breadcrumbs from "../../../components/Common/Breadcrumb";
@@ -10,8 +10,10 @@ import "../Menu/menu.scss";
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useDispatch, useSelector } from 'react-redux';
-import { showAddMenuCard, hideAddMenuCard } from "../../../store/menu/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { hideAddMenuCard } from "../../../store/menu/actions";
+
+import { showAddMenuCard } from "../../../store/menu/actions";
 
 
 import {
@@ -33,12 +35,29 @@ import { useFormik } from "formik";
 const MenuRestaurent = () => {
 
     const dispatch = useDispatch();
-    const myStore = useSelector((state) => state.showCardReducer);
-    console.log(myStore, "myStore======>");
 
-    const handleHideModal = () => {
-        dispatch(hideAddMenuCard());
+    const { card } = useSelector(state => ({
+        card: state.showCardReducer.card
+    }));
+    console.log(card, "card======>");
+
+    // useEffect(() => {
+
+    //     }, [myStore]);
+
+    const handleShowCard = () => {
+        console.log('handleShowCard----call')
+        dispatch(showAddMenuCard());
+
     };
+
+    const handleCloseCard = () => {
+        console.log('handleShowCard----call')
+        dispatch(hideAddMenuCard());
+
+    };
+
+
 
     /******* start searchData ****** */
     const [searchVal, setSearchVal] = useState('');
@@ -95,7 +114,6 @@ const MenuRestaurent = () => {
     });
 
 
-
     return (
         <>
             <React.Fragment>
@@ -116,15 +134,15 @@ const MenuRestaurent = () => {
                                             id="product-search"
                                             placeholder="Search Products"
                                         />
-                                        <i onClick={handleClearBtn} className="fas fa-times cut-data"></i>
+                                        {/* <i onClick={handleShowCard} className="fas fa-times cut-data"></i> */}
                                     </div>
                                 </div>
 
                                 <div className="col-md-6">
                                     <div style={{ float: "right" }}>
-                                        <div className="add-menu-new" onClick={handleShow}>
+                                        <button className="add-menu-new" onClick={handleShowCard}>
                                             ADD NEW MENU
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +169,7 @@ const MenuRestaurent = () => {
             </React.Fragment>
 
             {/* model card  */}
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={card} onHide={handleCloseCard}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Menu</Modal.Title>
                 </Modal.Header>
@@ -264,7 +282,7 @@ const MenuRestaurent = () => {
                         </Row>
 
                         <Modal.Footer style={{ marginTop: "20" }}>
-                            <Button onClick={handleClose} className="add-menu-new-close">
+                            <Button  onClick={handleCloseCard} className="add-menu-new-close">
                                 Close
                             </Button>
                             <Button type="submit" className="add-menu-new-button">

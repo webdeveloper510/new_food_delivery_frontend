@@ -2,8 +2,8 @@
 
    $backgroundColo:"#a9bb97";
 .accordians{
-  border-bottom: 4px solid #93fa2b;
-  border-right: 4px solid #93fa2b;
+  border-bottom: 4px solid gray;
+  border-right: 4px solid gray;
     
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -17,7 +17,7 @@
 .accordion-item:first-of-type .accordion-button {
  
     border-radius: 28px!important;
-    padding: 10pximportant;
+    padding: 10px important;
 }
 @media only screen and (max-width: 320) {
     h6, .h6 {
@@ -27,12 +27,14 @@
 
 .header{
     &:hover{
-      background:#a9bb97;
+      background:#f6f7f5;
+      color: black;
     } 
 }
 .header:active{
 
-    background:#a9bb97;
+    background-color: rgb(190, 155, 155);
+    color: black;
      
 
   

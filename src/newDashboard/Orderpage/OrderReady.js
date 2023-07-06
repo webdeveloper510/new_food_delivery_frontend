@@ -11,7 +11,7 @@ function OrderReady() {
   return (
     
     <div className='container' style={{paddingBottom:'70px'}}>
-      <div className='row py-2  text-light' style={{background:'#a9bb97'}}>
+      <div className='row py-2  text-dark bg-light' >
         <div className='col-6 text-center'>New</div>
         <div className='col-6 text-center'>Preparing</div>
       </div>

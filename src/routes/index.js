@@ -14,6 +14,8 @@ import FavoriteMenu from "newDashboard/favoriteMenu/FavoriteMenu";
 
 //Resturant
 import MenuRestaurent from "newDashboard/Restaurents/Menu/MenuRestaurent";
+import CategoryItems from "newDashboard/Restaurents/Category/CategoryItems";
+import CategoryLists from "newDashboard/Restaurents/Category/CategoryLists";
 
 // Profile
 import UserProfile from "../pages/Authentication/user-profile";
@@ -45,6 +47,10 @@ import OrderPayment from "newDashboard/Orderpage/OrderListing/OrderPayment";
 import OrderListing from "newDashboard/Orderpage/OrderListing/OrderListing";
 import ReadyOrder from "newDashboard/Orderpage/ReadyOrder/ReadyOrder";
 import Setting from "newDashboard/Settings/Setting";
+import Merchants from "../newDashboard/Merchants/Merchants";
+import Customer from "newDashboard/customer/Customer";
+
+
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -61,6 +67,9 @@ const authProtectedRoutes = [
 
   //Restaurent
   { path: "/menu-data", component: <MenuRestaurent /> },
+  {path: "/categoryItems", component: <CategoryItems />},
+  {path: "/categoryLists", component: <CategoryLists />},
+
 
   // //profile
   { path: "/profile", component: <UserProfile /> },
@@ -80,6 +89,8 @@ const authProtectedRoutes = [
   { path: "/orderListing", component: <OrderListing />},
   { path: "/readyOrder", component: <ReadyOrder />},
   { path: "/setting", component: <Setting/>},
+  { path: "/merchant", component: <Merchants/>},
+  { path: "/customer", component: <Customer/>},
  
  
 

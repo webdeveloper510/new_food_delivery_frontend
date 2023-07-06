@@ -21,7 +21,6 @@ export default function* rootSaga() {
     fork(ProfileSaga),
     fork(LayoutSaga),
     fork(ecommerceSaga),
-
     fork(menuSaga),
   ]);
 }
