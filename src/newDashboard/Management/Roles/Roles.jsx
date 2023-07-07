@@ -74,9 +74,9 @@ const Roles = () => {
 
                                 <div className="col-md-6">
                                     <div style={{ float: "right" }}>
-                                        <div className="rol-add" onClick={handleShow}>
+                                        <button className="rol-add" onClick={handleShow}>
                                             <FiPlus className="plus-icons" /> Add New
-                                        </div>
+                                        </button>
                                     </div>
 
                                 </div>

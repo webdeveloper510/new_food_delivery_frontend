@@ -48,9 +48,9 @@ const RequestedMenuItems = () => {
 
                                 <div className="col-md-6">
                                     <div style={{ float: "right" }}>
-                                        <div className="shop-apply" >
+                                        <button className="shop-apply" >
                                             Apply
-                                        </div>
+                                        </button>
                                     </div>
 
                                 </div>
