@@ -178,7 +178,7 @@ const SidebarContent = props => {
                   <Link to="/bill-order" ><BsArrowRight className="arroesubmenu" /> {props.t("Bill-Order")}</Link>
                 </li>
                 <li>
-                  {/* <Link to="#" ><BsArrowRight className="arroesubmenu" /> {props.t("Setting")}</Link> */}
+                  <Link to="/useCustomerLists" ><BsArrowRight className="arroesubmenu" /> {props.t("User")}</Link>
                 </li>
               </ul>
             </li>
@@ -198,7 +198,7 @@ const SidebarContent = props => {
                   <Link to="/categoryLists" ><BsArrowRight className="arroesubmenu" /> {props.t("Category Lists")}</Link>
                 </li>
                 <li>
-                  <Link to="/activeOrder" ><BsArrowRight className="arroesubmenu" /> {props.t("Order-Menu")}</Link>
+                  <Link to="/orderContent" ><BsArrowRight className="arroesubmenu" /> {props.t("Order-Menu")}</Link>
                 </li>
                 <li>
                   <Link to="/orderPayment" ><BsArrowRight className="arroesubmenu" /> {props.t("Order Payment")}</Link>

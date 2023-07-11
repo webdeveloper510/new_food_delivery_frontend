@@ -11,6 +11,7 @@ import NotFound404 from "newDashboard/notFound404/NotFound404";
 import Home from "newDashboard/home/Home";
 import FoodOrder from "newDashboard/foodOrder/FoodOrder";
 import FavoriteMenu from "newDashboard/favoriteMenu/FavoriteMenu";
+import UseCustomerLists from "../newDashboard/UserCustomer/UseCustomerLists";
 
 //Resturant
 import MenuRestaurent from "newDashboard/Restaurents/Menu/MenuRestaurent";
@@ -41,14 +42,13 @@ import Staff from "newDashboard/Management/Staff/Staff";
 import PromotioneZone from "newDashboard/PromotioneZone/PromotioneZone";
 
 //Orders
-import ActiveOrder from "newDashboard/Orderpage/ActiveOrder/ActiveOrder";
-import PastOrder from "newDashboard/Orderpage/PastOrder/PastOrder";
+
 import OrderPayment from "newDashboard/Orderpage/OrderListing/OrderPayment";
 import OrderListing from "newDashboard/Orderpage/OrderListing/OrderListing";
-import ReadyOrder from "newDashboard/Orderpage/ReadyOrder/ReadyOrder";
 import Setting from "newDashboard/Settings/Setting";
 import Merchants from "../newDashboard/Merchants/Merchants";
 import Customer from "newDashboard/customer/Customer";
+import OrderContent from "newDashboard/Orderpage/OrderContent";
 
 
 
@@ -64,7 +64,11 @@ const authProtectedRoutes = [
   { path: "/home", component: <Home /> },
   { path: "/foodOrder", component: <FoodOrder /> },
   { path: "/favoriteMenu", component: <FavoriteMenu /> },
-
+  { path: "/useCustomerLists", component: <UseCustomerLists /> },
+  
+  { path: "/orderContent", component: <OrderContent /> },
+  
+  
   //Restaurent
   { path: "/menu-data", component: <MenuRestaurent /> },
   {path: "/categoryItems", component: <CategoryItems />},
@@ -83,11 +87,9 @@ const authProtectedRoutes = [
   { path: "/promotioneZone", component: <PromotioneZone />},
  
   //Orders
-  { path: "/activeOrder", component: <ActiveOrder />},
-  { path: "/pastOrder", component: <PastOrder />},
+  
   { path: "/orderPayment", component: <OrderPayment />},
   { path: "/orderListing", component: <OrderListing />},
-  { path: "/readyOrder", component: <ReadyOrder />},
   { path: "/setting", component: <Setting/>},
   { path: "/merchant", component: <Merchants/>},
   { path: "/customer", component: <Customer/>},

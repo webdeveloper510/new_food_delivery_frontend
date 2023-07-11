@@ -4,21 +4,23 @@ import Accordion from 'react-bootstrap/Accordion'
 import "./style/OrderPage.scss"
 import OrderBody from './OrderBody'
 function OrderPast() {
+  const orderPast=OrderNewData.filter((e,i)=>e.id==2);
+    
   return (
      
     <div className='container' style={{paddingBottom:'70px'}}>
-      <div className='row py-2   text-light 'style={{background:'#a9bb97'}} >
+      <div className='row py-2   text-dark  ' style={{background:'#2a3042'}} >
         <div className='col-6 text-center'  style={{color:'green '}}>Complete Order</div>
-        <div className='col-6 text-center  ' style={{color:'#ea3c53 '}} > Ready Order</div>
+        <div className='col-6 text-center' style={{color:'#ea3c53 '}} > Ready Order</div>
       </div>
-      <div className='row d-flex justify-content-between w-100 row-cols-lg-2 row-cols-md-2 row-cols-1'>
-        <div className='col'>
-          {OrderNewData.map((e, i) => {
+      <div className='row d-flex justify-content-between w-100 row-cols-lg-2 row-cols-md-2 row-cols-1 '>
+        <div className='col py-3'>
+          {orderPast.map((e, i) => {
             return (
               <>
                 <div className='container mx-2' key={i}>
-                  <div className='row '>
-                    <Accordion  className='my-2 rounded accordians'>
+                  <div className='row my-1'>
+                    <Accordion  className='py-1 rounded accordians my-1 bg-light'>
                       <Accordion.Item eventKey="0" className=''>
                         <Accordion.Header className='rounded ' style={{background:'white!important'}}>
                         <div className='d-flex justify-content-between w-100 py-1'>
@@ -37,7 +39,7 @@ function OrderPast() {
                              </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                            <OrderBody/>
+                            <OrderBody active="Done"/>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -47,13 +49,13 @@ function OrderPast() {
             )
           })}
         </div>
-        <div className='col '>
-        {OrderNewData.map((e, i) => {
+        <div className='col py-3 '>
+        {orderPast.map((e, i) => {
             return (
               <>
                 <div className='container mx-2' key={i}>
-                  <div className='row '>
-                    <Accordion  className='my-2 rounded accordians'>
+                  <div className='row my-1'>
+                    <Accordion  className='py-1 rounded accordians my-1 bg-light'>
                       <Accordion.Item eventKey="0" className=''>
                         <Accordion.Header className='rounded ' style={{background:'white!important'}}>
                              <div className='d-flex justify-content-between w-100 py-1'>
@@ -72,7 +74,7 @@ function OrderPast() {
                              </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                            <OrderBody/>
+                            <OrderBody active="Done"/>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>

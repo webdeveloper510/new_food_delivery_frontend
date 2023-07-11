@@ -8,21 +8,26 @@ import OrderBody from './OrderBody'
 // import OrderPreparing from './OrderPreparing';
 
 function OrderReady() {
+  const orderReady=OrderNewData.filter((e,i)=>e.id===3);
+  
+  console.log(orderReady);
+
   return (
     
     <div className='container' style={{paddingBottom:'70px'}}>
-      <div className='row py-2  text-dark bg-light' >
-        <div className='col-6 text-center'>New</div>
-        <div className='col-6 text-center'>Preparing</div>
+      
+      <div className='row py-2  text-dark ' style={{background:'#2a3042'}}  >
+        <div className='col-6 text-center text-light'>New</div>
+        <div className='col-6 text-center text-light'>Preparing</div>
       </div>
       <div className='row d-flex justify-content-between w-100 row-cols-lg-2 row-cols-md-2 row-cols-1'>
-        <div className='col'>
-          {OrderNewData.map((e, i) => {
+        <div className='col py-3'>
+          {orderReady.map((e, i) => {
             return (
               <>
                 <div className='container mx-2' key={i}>
-                  <div className='row '>
-                    <Accordion  className='my-2 rounded accordians'>
+                  <div className='row my-1'>
+                    <Accordion  className='my-1 rounded accordians bg-light '>
                       <Accordion.Item eventKey="0" className='py-3'>
                         <Accordion.Header className='rounded ' style={{background:'white!important'}}>
                              <div className='d-flex justify-content-between w-75 py-1 px-2'>
@@ -33,7 +38,7 @@ function OrderReady() {
                              </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                            <OrderBody/>
+                            <OrderBody active="Mark as ready"/>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -43,13 +48,13 @@ function OrderReady() {
             )
           })}
         </div>
-        <div className='col '>
-        {OrderNewData.map((e, i) => {
+        <div className='col py-3'>
+        {orderReady.map((e, i) => {
             return (
               <>
                 <div className='container mx-2 w-90' key={i}>
-                  <div className='row '>
-                    <Accordion  className='py-3 my-2 rounded accordians'>
+                  <div className='row  my-1'>
+                    <Accordion  className='my-1 py-2 rounded accordians bg-light'>
                       <Accordion.Item eventKey="0" >
                         <Accordion.Header className='pb-3' >
                              <div className='d-flex position-relative justify-content-between w-75 py-1 px-2'>
@@ -62,7 +67,7 @@ function OrderReady() {
                           </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                            <OrderBody/>
+                            <OrderBody active="Mark as ready"/>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>

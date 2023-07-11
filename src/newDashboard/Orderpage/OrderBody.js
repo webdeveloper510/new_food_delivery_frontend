@@ -2,7 +2,7 @@ import React from 'react'
 // import { OrderBodyData } from '../orderdata/OrderBodyData.js';
 import { OrderBodyData } from './orderdata/OrderBodyData';
 import OrderHelpButton from './OrderHelpButton';
-function OrderBody() {
+function OrderBody({active}) {
   return (
     <div className='container mb-2'>
         <div className='row'>
@@ -50,7 +50,7 @@ function OrderBody() {
                 <div className='float-end'>
                     {/* <button className='btn'><i class="bi bi-patch-question-fill"></i> Help</button> */}
                     <OrderHelpButton/>
-                    <button className='btn text-light mx-2' style={{background:"#81C341"}}><i class="bi bi-check-circle-fill"></i>  Accept Order</button>
+                    <button className='btn text-light mx-2' style={{background:"#81C341"}}><i class="bi bi-check-circle-fill"></i>  {active}</button>
                 </div>
                 <div className='clearfix'></div>
                </div>

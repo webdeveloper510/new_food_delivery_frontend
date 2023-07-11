@@ -5,6 +5,7 @@ import { FiPlus } from "react-icons/fi";
 import PromotioneZoneListing from "./PromotioneZoneListing";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import "../PromotioneZone/promotioneZone.scss";
 
 import {
     Card,
@@ -20,17 +21,55 @@ import {
 // Formik validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { ImPointDown } from "react-icons/im";
 
 
 const PromotioneZone = () => {
-    /***********Model card*********** */
+
+    const [fields, setFields] = useState([{ value: '' }]);
+    const [showFields, setShowFields] = useState(false);
     const [show, setShow] = useState(false);
 
+
+
+
+    /**********Button click add new input-feilds *******/
+
+    const handleChange = (index, event) => {
+        const values = [...fields];
+        values[index].value = event.target.value;
+        setFields(values);
+    };
+
+    const handleAddField = () => {
+        const values = [...fields];
+        values.push({ value: '' });
+        setFields(values);
+        setShowFields(true);
+    };
+
+    const handleRemoveField = (index) => {
+        const values = [...fields];
+        values.splice(index, 1);
+        setFields(values);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(fields); // Use the fields data as needed
+    };
+
+    /**********EndButton click add new input-feilds *******/
+
+
+
+    /***********Start Model card*********** */
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    /***********End Model card*********** */
 
 
-
+    /***********Start form-validation*********** */
     const validation = useFormik({
         // enableReinitialize : use this flag when initial values needs to be changed
         enableReinitialize: true,
@@ -45,6 +84,12 @@ const PromotioneZone = () => {
             EendTime: "",
             priority: "",
             other: "",
+            BusinessZone: "",
+            minimumSubtotal: "",
+            chooseRestaurant: "",
+            discountType: "",
+            discount: "",
+            Maxdiscount: "",
         },
         validationSchema: Yup.object({
 
@@ -56,6 +101,12 @@ const PromotioneZone = () => {
             EendTime: Yup.string().required("Please Enter Your Start End Time"),
             priority: Yup.string().required("Please Enter Your Priority"),
             other: Yup.string().required("Please Enter Your other"),
+            BusinessZone: Yup.string().required("Select Business Zone"),
+            minimumSubtotal: Yup.string().required("Please Enter Minimum Subtotal"),
+            chooseRestaurant: Yup.string().required("Please Enter Choose Restaurant"),
+            discountType: Yup.string().required("Please Enter Discount Type"),
+            discount: Yup.string().required("Please Enter Discount"),
+            Maxdiscount: Yup.string().required("Please Enter Max Discount"),
 
         }),
         onSubmit: async (values, { resetForm }) => {
@@ -64,6 +115,7 @@ const PromotioneZone = () => {
         }
 
     });
+    /***********End form-validation*********** */
 
     return (
         <>
@@ -310,13 +362,195 @@ const PromotioneZone = () => {
                                             </div>
                                         </div>
 
+                                        <p className="staff-Details-condtion">CONDITION</p>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Business Zone</Label>
+                                                    <select
+                                                        className="form-select form-select-md"
+                                                        aria-label=".form-select-md example"
+                                                        name="BusinessZone" // Add the name attribute
+                                                        value={validation.values.BusinessZone} // Bind the value to the formik values
+                                                        onChange={validation.handleChange} // Bind the change event handler
+                                                        onBlur={validation.handleBlur} // Bind the blur event handler
+                                                    >
+                                                        <option value="" selected>
+                                                            Choose Business Zone
+                                                        </option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    {validation.touched.BusinessZone && validation.errors.BusinessZone ? (
+                                                        <FormFeedback type="invalid">{validation.errors.BusinessZone}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Minimum Subtotal</Label>
+                                                    <Input
+                                                        name="minimumSubtotal"
+                                                        type="number"
+                                                        placeholder="Minimum Subtotal"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.minimumSubtotal || ""}
+                                                        invalid={
+                                                            validation.touched.minimumSubtotal && validation.errors.minimumSubtotal ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.minimumSubtotal && validation.errors.minimumSubtotal ? (
+                                                        <FormFeedback type="invalid">{validation.errors.minimumSubtotal}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Choose Restaurant</Label>
+                                                    <select
+                                                        className="form-select form-select-md"
+                                                        aria-label=".form-select-md example"
+                                                        name="chooseRestaurant" // Add the name attribute
+                                                        value={validation.values.chooseRestaurant} // Bind the value to the formik values
+                                                        onChange={validation.handleChange} // Bind the change event handler
+                                                        onBlur={validation.handleBlur} // Bind the blur event handler
+                                                    >
+                                                        <option value="" selected>
+                                                            Choose Restaurant
+                                                        </option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    {validation.touched.chooseRestaurant && validation.errors.chooseRestaurant ? (
+                                                        <FormFeedback type="invalid">{validation.errors.chooseRestaurant}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Choose Restaurant Category</Label>
+                                                    <select
+                                                        className="form-select form-select-md"
+                                                        aria-label=".form-select-md example"
+                                                        name="restaurantCategory" // Add the name attribute
+                                                        value={validation.values.restaurantCategory} // Bind the value to the formik values
+                                                        onChange={validation.handleChange} // Bind the change event handler
+                                                        onBlur={validation.handleBlur} // Bind the blur event handler
+                                                    >
+                                                        <option value="" selected>
+                                                            Choose Restaurant Category
+                                                        </option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    {validation.touched.restaurantCategory && validation.errors.restaurantCategory ? (
+                                                        <FormFeedback type="invalid">{validation.errors.restaurantCategory}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+
+                                            {showFields && fields.map((field, index) => (
+                                                <div className="row" key={index}>
+                                                    <div className="col-md-12">
+                                                        <Label className="form-label">new</Label><br />
+                                                        <input
+                                                            type="text"
+                                                            value={field.value}
+                                                            onChange={(e) => handleChange(index, e)}
+                                                            placeholder="new feild"
+                                                        />
+                                                        <button onClick={() => handleRemoveField(index)}>
+                                                            Remove
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            ))}
+
+                                            <button className="add-more-feild" onClick={handleAddField} >
+                                                <FiPlus className="plus-icons" /> Add More
+                                            </button>
+                                        </div>
+
+                                        <p className="staff-Details-condtion">Action</p>
+
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Discount Type</Label>
+                                                    <select
+                                                        className="form-select form-select-md"
+                                                        aria-label=".form-select-md example"
+                                                        name="discountType" // Add the name attribute
+                                                        value={validation.values.discountType} // Bind the value to the formik values
+                                                        onChange={validation.handleChange} // Bind the change event handler
+                                                        onBlur={validation.handleBlur} // Bind the blur event handler
+                                                    >
+                                                        <option value="" selected>
+                                                            Choose Discount Type
+                                                        </option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    {validation.touched.discountType && validation.errors.discountType ? (
+                                                        <FormFeedback type="invalid">{validation.errors.discountType}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Discount</Label>
+                                                    <Input
+                                                        name="discount"
+                                                        type="text"
+                                                        placeholder="Minimum Subtotal"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.discount || ""}
+                                                        invalid={
+                                                            validation.touched.discount && validation.errors.discount ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.discount && validation.errors.discount ? (
+                                                        <FormFeedback type="invalid">{validation.errors.discount}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <Label className="form-label">Max discount in INR</Label>
+                                                    <Input
+                                                        name="Maxdiscount"
+                                                        type="number"
+                                                        placeholder="Minimum Subtotal"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.Maxdiscount || ""}
+                                                        invalid={
+                                                            validation.touched.Maxdiscount && validation.errors.Maxdiscount ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.Maxdiscount && validation.errors.Maxdiscount ? (
+                                                        <FormFeedback type="invalid">{validation.errors.Maxdiscount}</FormFeedback>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
 
                                         <Modal.Footer style={{ marginTop: "20" }}>
                                             <Button onClick={handleClose} className="add-menu-new-close">
                                                 Close
                                             </Button>
                                             <Button type="submit" className="add-menu-new-button">
-                                                Save Changes
+                                                Sunbmit details
                                             </Button>
 
                                         </Modal.Footer>

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 
 import { Row, Col, CardBody, Card, Alert, Container, Form, Input, FormFeedback, Label } from "reactstrap";
 
@@ -26,7 +26,10 @@ import { API } from "../../newDashboard/config/API";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {
+  LoginSocialGoogle,
+  LoginSocialFacebook,
+} from 'reactjs-social-login';
 
 
 const Login = props => {
@@ -102,17 +105,6 @@ const Login = props => {
 
 
 
-  const signIn = type => {
-    dispatch(socialLogin(type, props.router.navigate));
-  };
-
-  //for facebook and google authentication
-  const socialResponse = type => {
-    signIn(type);
-  };
-
-  //handleTwitterLoginRespons
-  // const twitterResponse = e => {}
 
   return (
     <React.Fragment>
@@ -227,7 +219,36 @@ const Login = props => {
 
                         <ul className="list-inline">
                           <li className="list-inline-item">
-                            <Link
+                            <LoginSocialFacebook
+                              appId='841301627325582'
+                              fieldsProfile='first_name, last_name , middle_name, email'
+                              onResolve={({ provider, data }) => {
+                                console.log(provider, data)
+                                console.log(data)
+                                if (data) {
+                                  handleLogin({ first_name: data.first_name, last_name: data.last_name, email: data.email, login_type: 2 })
+                                }
+                              }}
+                              onReject={(err) => {
+                                console.log(err);
+                              }}
+                            >
+                              <a
+                                href='#'
+                                className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
+                              >
+                                <div
+                                  className="social-list-item bg-primary text-white border-primary"
+                                  onClick={e => {
+                                    e.preventDefault();
+                                    socialResponse("facebook");
+                                  }}
+                                >
+                                  <i className="mdi mdi-facebook" />
+                                </div>
+                              </a>
+                            </LoginSocialFacebook>
+                            {/* <Link
                               to="#"
                               className="social-list-item bg-primary text-white border-primary"
                               onClick={e => {
@@ -236,7 +257,7 @@ const Login = props => {
                               }}
                             >
                               <i className="mdi mdi-facebook" />
-                            </Link>
+                            </Link> */}
                           </li>
                           {/*<li className="list-inline-item">*/}
                           {/*  <TwitterLogin*/}
@@ -260,7 +281,36 @@ const Login = props => {
                           {/*  </TwitterLogin>*/}
                           {/*</li>*/}
                           <li className="list-inline-item">
-                            <Link
+                            <LoginSocialGoogle
+                              client_id={"647800564606-acnau26956qdni5g1mdmjlr89e4p7rnk.apps.googleusercontent.com"}
+                              scope="openid profile email"
+                              discoveryDocs="claims_supported"
+                              access_type="offline"
+                              onResolve={({ provider, data }) => {
+                                console.log(provider, data)
+                                console.log(data)
+                              }}
+                              onReject={(err) => {
+                                console.log(err);
+                              }}
+                            >
+                              <a
+                                href='#'
+                                className='btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100'
+                              >
+                                <div
+                                  className="social-list-item bg-danger text-white border-danger"
+                                  onClick={e => {
+                                    e.preventDefault();
+                                    socialResponse("google");
+                                  }}
+                                >
+                                  <i className="mdi mdi-google" />
+                                </div>
+                              </a>
+                            </LoginSocialGoogle>
+
+                            {/* <Link
                               to="#"
                               className="social-list-item bg-danger text-white border-danger"
                               onClick={e => {
@@ -269,7 +319,7 @@ const Login = props => {
                               }}
                             >
                               <i className="mdi mdi-google" />
-                            </Link>
+                            </Link> */}
                           </li>
                         </ul>
                       </div>
