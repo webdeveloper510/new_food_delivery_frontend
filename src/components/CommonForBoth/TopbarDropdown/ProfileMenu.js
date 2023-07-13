@@ -46,7 +46,7 @@ const navigate = useNavigate();
     event.preventDefault();
     localStorage.clear();
     toast.success("Logout Successfully", { position: "top-right", autoClose: 2000, hideProgressBar: true })
-    navigate("/login")
+    navigate("admin/login")
   }
 
 

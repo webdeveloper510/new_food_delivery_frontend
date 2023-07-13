@@ -14,27 +14,27 @@ import 'react-toastify/dist/ReactToastify.css';
 const TableLists = () => {
     const [data, setData] = useState([]);
 
-      //localstorage
-  const SignupToken = localStorage.getItem("SignupToken");
-  const CustomerToken = localStorage.getItem("CustomerToken");
-  console.log(CustomerToken, "=========>CustomerToken")
+    //localstorage
+    const SignupToken = localStorage.getItem("SignupToken");
+    const CustomerToken = localStorage.getItem("CustomerToken");
+    console.log(CustomerToken, "=========>CustomerToken")
 
-  localStorage.setItem(
-    "CustomerToken",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im93bmVyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoib3duZXJAMTIzIiwiaWF0IjoxNjg2OTA5MzIzfQ.DRXwgoOmQ3iXtFt6ybiKktkibpPuei518Z1lmwcPWbw"
-  );
-  
-  useEffect(() => {
-    // Retrieve the token from local storage
-    const storedToken = localStorage.getItem("CustomerToken");
-    // Use the storedToken value as needed in your component logic
-  
-    // Example: Log the token to the console
-    console.log(storedToken);
-  
-    // Make sure to add "storedToken" to the dependency array
-  }, []);
-  
+    localStorage.setItem(
+        "CustomerToken",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im93bmVyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoib3duZXJAMTIzIiwiaWF0IjoxNjg2OTA5MzIzfQ.DRXwgoOmQ3iXtFt6ybiKktkibpPuei518Z1lmwcPWbw"
+    );
+
+    useEffect(() => {
+        // Retrieve the token from local storage
+        const storedToken = localStorage.getItem("CustomerToken");
+        // Use the storedToken value as needed in your component logic
+
+        // Example: Log the token to the console
+        console.log(storedToken);
+
+        // Make sure to add "storedToken" to the dependency array
+    }, []);
+
     /********** Start--Switch ***************** */
     // Our States
     const [state, setState] = React.useState({ status: true });
@@ -45,9 +45,8 @@ const TableLists = () => {
     };
     /********** End--Switch ***************** */
 
-    
-    
-    /**************************************************************************
+
+   /**************************************************************************
    * ************** Start  Recipient List ************************************
    * ***********************************************************************/
 
@@ -65,21 +64,21 @@ const TableLists = () => {
             .then(function (response) {
                 console.log("Recipients APIIIII", response.data);
                 setData(response.data.listCustomer);
-                 console.log(data, "====>data")
+                console.log(data, "====>data")
             })
             .catch(function (error) {
                 console.log(error);
                 console.log(error.response);
-               
-            })
-    
-}, []);
 
-useEffect(() => {
-    console.log(data);
-  }, [data]);
-  
-  console.log(data, " nnkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+            })
+
+    }, []);
+
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
+
+    console.log(data, " nnkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
     return (
@@ -97,58 +96,58 @@ useEffect(() => {
                     </tr>
                 </thead>
                 <tbody>
-                {
-                   data?.map((res, index) => {
-                    console.log(res, "itemnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
-                 return (
-                    <tr >
-                        <td>
-                            <h5 className="mb-0">{index +1}</h5>
-                        </td>
-                        <td>
-                            <p className="item-name">
-                            {res.firstName}
-                            </p>
-                        </td>
-                        <td>
-                            <p className="item-name-shop">{res.lastName}</p>
-                        </td>
-                        <td>
-                            <p className="total-shop-prize">
-                            {res.phoneNumber}
-                            </p>
+                    {
+                        data?.map((res, index) => {
+                            console.log(res, "itemnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+                            return (
+                                <tr >
+                                    <td>
+                                        <h5 className="mb-0">{index + 1}</h5>
+                                    </td>
+                                    <td>
+                                        <p className="item-name">
+                                            {res.firstName}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p className="item-name-shop">{res.lastName}</p>
+                                    </td>
+                                    <td>
+                                        <p className="total-shop-prize">
+                                            {res.phoneNumber}
+                                        </p>
 
-                        </td>
-                        <td>
-                            <p className="total-shop-prize">
-                            {res.countryCode}
-                            </p>
+                                    </td>
+                                    <td>
+                                        <p className="total-shop-prize">
+                                            {res.countryCode}
+                                        </p>
 
-                        </td>
-                        <td>
-                            <p className="total-shop-prize">
-                            {res.email}
-                            </p>
+                                    </td>
+                                    <td>
+                                        <p className="total-shop-prize">
+                                            {res.email}
+                                        </p>
 
-                        </td>
-                
+                                    </td>
 
-                        <td>
-                            <Dropdown>
-                                <Dropdown.Toggle id="dropdown-basicAcntion" className="action-content">
-                                    <BsThreeDots className="action-shop-table" />
-                                </Dropdown.Toggle>
 
-                                <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                                    <td>
+                                        <Dropdown>
+                                            <Dropdown.Toggle id="dropdown-basicAcntion" className="action-content">
+                                                <BsThreeDots className="action-shop-table" />
+                                            </Dropdown.Toggle>
 
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </td>
-                    </tr>
-                       )
-                    })} 
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </td>
+                                </tr>
+                            )
+                        })}
 
                 </tbody>
             </Table>

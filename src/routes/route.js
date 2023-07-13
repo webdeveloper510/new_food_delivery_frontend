@@ -12,7 +12,7 @@ const Authmiddleware = (props) => {
   // }
    if (!localStorage.getItem("loginToken")) {
     return (
-      <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
+      <Navigate to={{ pathname: "admin/login", state: { from: props.location } }} />
     );
   }
   return (<React.Fragment>

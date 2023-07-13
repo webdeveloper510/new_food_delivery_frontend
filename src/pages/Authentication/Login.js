@@ -36,13 +36,9 @@ const Login = props => {
   //localstorage
   const SignupToken = localStorage.getItem("SignupToken");
 
-
-
   const notify = () => toast.success("Login Successfully!");
   // const emptyData = () => toast.warn("Please fill out all the fields");
   const emailExits = () => toast.error("User with this Email already exists!");
-
-
 
   //meta title
   document.title = "Login | Skote - React Admin & Dashboard Template";
@@ -65,13 +61,13 @@ const Login = props => {
     onSubmit: async (values, { resetForm }) => {
       try {
         // Move the API call here
-        const response = await axios.post(API.BASE_URL + 'merchant/auth/login', {
+        const response = await axios.post(API.BASE_URL + 'admin/auth/login', {
           email: values.email,
           password: values.password,
         }, {
           headers: {
-            'Content-Type': 'application/json',
-            "Authorization": `Bearer ${SignupToken}`,
+            // 'Content-Type': 'application/json',
+            // "Authorization": `Bearer ${SignupToken}`,
           },
         });
 
@@ -102,8 +98,6 @@ const Login = props => {
       }
     }
   });
-
-
 
 
   return (

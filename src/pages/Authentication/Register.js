@@ -29,7 +29,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = props => {
 
-
   const notify = () => toast.success("Sign Up Successfully!");
   const emptyData = () => toast.warn("Please fill out all the fields");
   const emailExits = () => toast.error("User with this Email already exists!");
