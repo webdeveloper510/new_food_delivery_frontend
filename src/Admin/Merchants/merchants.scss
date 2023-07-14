@@ -1,0 +1,53 @@
+img.me-3.rounded-circle.media-bx.d-flex.align-items-center {
+    width: 2.5rem;
+    /* height: 45px; */
+    height: 2.5rem;
+    /* object-fit: cover; */
+}
+
+input.Datatable-Admin {
+    /* color: #81C341; */
+    width: 212px;
+    height: 40px;
+    font-size: 14px;
+    background: #81c3418c;
+    padding-left: 42px;
+    /* border: none; */
+    /* outline: none; */
+    border: 1px solid #a9a1a1;
+    border-radius: 20px;
+    /* margin-left: -20px; */
+    margin-bottom: 18px;
+}
+
+button#dropdown-basicAction {
+    border: none !important;
+    background: none;
+    /* background-color: #81C341; */
+    /* color: red; */
+}
+
+svg.action-shop-table {
+    color: #81C341;
+    font-weight: bold;
+    font-size: 24px;
+}
+.no-data-found {
+    text-align: center;
+    /* color: #e31919; */
+    /* background-color: #81c341; */
+    height: 35px;
+    /* font-size: 52px; */
+    border: 1px solid #bcc1bb;
+    p{
+        // font-size: 22px;
+        // color: #86a16cf0;
+        // font-weight: 700;
+        padding-top: 8px;
+
+    }
+}
+
+span.delete-content {
+    color: red;
+}

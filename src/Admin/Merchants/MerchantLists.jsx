@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { BsThreeDotsVertical, BsThreeDots } from "react-icons/bs";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import imageicon01 from "../../assets/foodImages/orderHistory/pic-1.jpg";
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+import "../Merchants/merchants.scss";
 
 //config
 import { API } from "../../newDashboard/config/API";
@@ -13,148 +14,140 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MerchantLists = () => {
-    const [data, setData] = useState([]);
-
     //localstorage
     const loginToken = localStorage.getItem("loginToken");
-    // console.log(loginToken, "=========>loginToken")
+    const [data, setData] = useState([]);
+    const [state, setState] = useState({ status: true });
+    const [filteredData, setFilteredData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
-    // localStorage.setItem(
-    //     "CustomerToken",
-    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im93bmVyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoib3duZXJAMTIzIiwiaWF0IjoxNjg2OTA5MzIzfQ.DRXwgoOmQ3iXtFt6ybiKktkibpPuei518Z1lmwcPWbw"
-    // );
-
-    // useEffect(() => {
-    //     const storedToken = localStorage.getItem("CustomerToken");
-    //     console.log(storedToken);
-
-    // }, []);
-
-    /********** Start--Switch ***************** */
-    // Our States
-    const [state, setState] = React.useState({ status: true });
-
-    // Change State Function
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-    };
-    /********** End--Switch ***************** */
-
-
-    /**************************************************************************
-    * ************** Start  Recipient List ************************************
-    * ***********************************************************************/
 
     const notify = () => toast.success("Login Successfully!");
     // const emptyData = () => toast.warn("Please fill out all the fields");
     const emailExits = () => toast.error("User with this Email already exists!");
 
+    /**************************************************************************
+    * ************** Start  Recipient List ************************************
+    * ***********************************************************************/
     useEffect(() => {
-        axios.get(API.BASE_URL + 'admin/merchant/list', {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-access-token': loginToken,
-            }
-        })
+        axios
+            .get(API.BASE_URL + 'admin/merchant/list', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': loginToken,
+                },
+            })
             .then(function (response) {
-                // console.log("Recipients APIIIII", response.data);
                 setData(response.data.listMerchants);
-                // console.log(data, "====>data")
+                setFilteredData(response.data.listMerchants);
             })
             .catch(function (error) {
-                // console.log(error);
-                // console.log(error.response);
-
-            })
-
+                console.log(error);
+                console.log(error.response);
+            });
     }, []);
 
-    useEffect(() => {
-       // console.log(data);
-    }, [data]);
 
-    // console.log(data, " nnkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+    const handleSearch = (e) => {
+        const value = e.target.value.toLowerCase();
+        const filtered = data.filter(
+            (item) =>
+                item.firstName.toLowerCase().includes(value) ||
+                item.lastName.toLowerCase().includes(value) ||
+                item.email.toLowerCase().includes(value) ||
+                item.phoneNumber.toLowerCase().includes(value) ||
+                item.countryCode.toLowerCase().includes(value)
+        );
+        setFilteredData(filtered);
+        setCurrentPage(1); // Reset to the first page when filtering
+    };
+
+    const columns = [
+        {
+            dataField: 'id',
+            text: 'SR No',
+            sort: true,
+            formatter: (cell, row, rowIndex) => <span>{(currentPage - 1) * paginationOptions.sizePerPage + rowIndex + 1}</span>,
+        },
+        {
+            dataField: 'firstName',
+            text: 'FIRST NAME',
+            // filter: textFilter(),
+        },
+        {
+            dataField: 'lastName',
+            text: 'LAST NAME',
+            // filter: textFilter(),
+        },
+        {
+            dataField: 'email',
+            text: 'EMAIL',
+            // filter: textFilter(),
+        },
+        {
+            dataField: 'phoneNumber',
+            text: 'CONTACT NUMBER',
+            // filter: textFilter(),
+        },
+        {
+            dataField: 'countryCode',
+            text: 'COUNTRY CODE',
+            // filter: textFilter(),
+        },
+        {
+            dataField: 'image',
+            text: 'Image',
+            formatter: (cell, row) =>
+                <img className="me-3 rounded-circle media-bx d-flex align-items-center" src={cell} alt="images" />,
+
+
+        },
+        {
+            dataField: 'action',
+            text: 'Action',
+            formatter: (cell, row) => (
+                <Dropdown>
+                    <Dropdown.Toggle id="dropdown-basicAction" className="action-content">
+                        <BsThreeDots className="action-shop-table" />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2" >
+                            <span className="delete-content">Delete</span>
+                            </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            ),
+        },
+    ];
+
+    const paginationOptions = {
+        sizePerPage: 5,
+        hideSizePerPage: true,
+        hidePageListOnlyOnePage: true,
+        onPageChange: (page, sizePerPage) => setCurrentPage(page),
+    };
 
 
     return (
         <>
-            <Table striped bordered hover className="required-menu-table">
-                <thead className="order-history">
-                    <tr>
-                        <th>SR No</th>
-                        <th>FIRST NAME </th>
-                        <th>LAST NAME</th>
-                        <th>EMAIL</th>
-                        <th>CONTACT NUMBER</th>
-                        <th>COUNTRY CODE</th>
-                        <th>Image</th>
-                        <th>Action</th>
+            <div>
+                <input type="text" className="Datatable-Admin" placeholder="Search..." onChange={handleSearch} />
+                {filteredData.length > 0 ? (
+                    <BootstrapTable
+                        keyField="id"
+                        data={filteredData}
+                        columns={columns}
+                        filter={filterFactory()}
+                        pagination={paginationFactory(paginationOptions)}
+                    />
+                ) : (
+                    <div className="no-data-found">
+                        <p>No Data Found</p>
+                    </div>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        data?.map((res, index) => {
-                            // console.log(res, "itemnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
-                            return (
-                                <tr>
-                                    <td>
-                                        <h5 className="mb-0">{index + 1}</h5>
-                                    </td>
-                                    <td>
-                                        <p className="item-name">
-                                            {res.firstName}
-                                        </p>
-                                    </td>
-
-                                    <td>
-                                        <p className="item-name-shop">{res.lastName}</p>
-                                    </td>
-                                    <td>
-                                        <p className="total-shop-prize">
-                                            {res.email}
-                                        </p>
-
-                                    </td>
-                                    <td>
-                                        <p className="total-shop-prize">
-                                            {res.phoneNumber}
-                                        </p>
-
-                                    </td>
-                                    <td>
-                                        <p className="total-shop-prize">
-                                            {res.countryCode}
-                                        </p>
-
-                                    </td>
-
-                                    <td>
-                                        <div className="media-bx d-flex align-items-center">
-                                            <img className="me-3 rounded-circle" src={res.image} alt="images" />
-                                        </div>
-                                    </td>
-
-
-                                    <td>
-                                        <Dropdown>
-                                            <Dropdown.Toggle id="dropdown-basicAcntion" className="action-content">
-                                                <BsThreeDots className="action-shop-table" />
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
-
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-
-                </tbody>
-            </Table>
+                )}
+            </div>
         </>
     )
 }

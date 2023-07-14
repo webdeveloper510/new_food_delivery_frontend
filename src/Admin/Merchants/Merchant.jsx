@@ -5,6 +5,8 @@ import { FiPlus } from "react-icons/fi";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import MerchantLists from "./MerchantLists";
+import { useDispatch, useSelector } from "react-redux";
+import { hideAddMenuCard, showAddMenuCard } from "store/menu/actions";
 
 import {
     Card,
@@ -33,9 +35,6 @@ const Merchant = () => {
     const loginToken = localStorage.getItem("loginToken");
     //  console.log(loginToken, "=========>loginToken")
 
-    const [file, seFile] = useState('');
-
-
     /***********Model card*********** */
     const [show, setShow] = useState(false);
 
@@ -43,15 +42,36 @@ const Merchant = () => {
     const handleShow = () => setShow(true);
 
     /**********Image form data pass **********/
-    // const formData = new FormData();
-    // formData.append('image', values.image);
-    const uploadFile = (event) => {
-        if (event.target.files.length > 0) {
-            const file = event.target.files[0];
-            console.log("fff", file)
-            validation.setFieldValue("image", file.name)
-        }
-    }
+   
+    // const uploadFile = (event) => {
+    //     if (event.target.files.length > 0) {
+    //         const file = event.target.files[0];
+    //         console.log("fff", file)
+    //         validation.setFieldValue("image", file.name)
+    //     }
+    // }
+
+    /*****************Store Data******** */
+
+    const dispatch = useDispatch();
+
+    const { card } = useSelector(state => ({
+        card: state.showCardReducer.card
+    }));
+    console.log(card, "card======>");
+
+    const handleShowCard = () => {
+        console.log('handleShowCard----call')
+        dispatch(showAddMenuCard());
+
+    };
+
+    const handleCloseCard = () => {
+        console.log('handleShowCard----call')
+        dispatch(hideAddMenuCard());
+
+    };
+
 
 
 
@@ -156,7 +176,7 @@ const Merchant = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <div style={{ float: "right" }}>
-                                        <button className="rol-add" onClick={handleShow}>
+                                        <button className="rol-add" onClick={handleShowCard}>
                                             <FiPlus className="plus-icons" /> Add New
                                         </button>
                                     </div>
@@ -171,7 +191,7 @@ const Merchant = () => {
                             {/* <!-- ======= End---main section ======= --> */}
 
                             {/* Start model card  */}
-                            <Modal show={show} onHide={handleClose}>
+                            <Modal show={card} onHide={handleCloseCard}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add Merchant</Modal.Title>
                                 </Modal.Header>
@@ -320,7 +340,7 @@ const Merchant = () => {
 
 
                                         <Modal.Footer style={{ marginTop: "20" }}>
-                                            <Button onClick={handleClose} className="add-menu-new-close">
+                                            <Button onClick={handleCloseCard} className="add-menu-new-close">
                                                 Close
                                             </Button>
                                             <Button type="submit" className="add-menu-new-button">
