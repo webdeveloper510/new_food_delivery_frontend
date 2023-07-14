@@ -238,6 +238,20 @@ const SidebarContent = props => {
             </li>
 
             <li>
+              <Link to="/#" className="has-arrow">
+                <ImPacman className="Management-icons" />
+                <span>{props.t("Admin")}</span>
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/admin/merchant" ><BsArrowRight className="arroesubmenu" /> {props.t("Merchants")}</Link>
+                </li>
+               
+              </ul>
+
+            </li>
+
+            <li>
               <Link to="/promotioneZone">
                 <GiStarProminences className="Restaurant-icons" />
                 <span>{props.t("Promotione Zone")}</span>

@@ -56,7 +56,7 @@ const Login = props => {
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
-    }),
+    }), 
 
     onSubmit: async (values, { resetForm }) => {
       try {
@@ -329,13 +329,13 @@ const Login = props => {
                 </CardBody>
               </Card>
               <div className="mt-5 text-center">
-                <p>
+                {/* <p>
                   Don&#39;t have an account ?{" "}
                   <Link to="/register" className="fw-medium text-primary">
                     {" "}
                     Signup now{" "}
                   </Link>{" "}
-                </p>
+                </p> */}
                 <p>
                   © {new Date().getFullYear()} Users. work with{" "}
                   <i className="mdi mdi-heart text-danger" /> by FOD

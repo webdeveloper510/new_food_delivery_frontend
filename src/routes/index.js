@@ -50,6 +50,12 @@ import Merchants from "../newDashboard/Merchants/Merchants";
 import Customer from "newDashboard/customer/Customer";
 import OrderContent from "newDashboard/Orderpage/OrderContent";
 
+//Admin 
+import Merchant from "Admin/Merchants/Merchant";
+import { element } from "prop-types";
+import { compact } from "lodash";
+import { components } from "react-select";
+
 
 
 const authProtectedRoutes = [
@@ -87,12 +93,14 @@ const authProtectedRoutes = [
   { path: "/promotioneZone", component: <PromotioneZone />},
  
   //Orders
-  
   { path: "/orderPayment", component: <OrderPayment />},
   { path: "/orderListing", component: <OrderListing />},
   { path: "/setting", component: <Setting/>},
   { path: "/merchant", component: <Merchants/>},
   { path: "/customer", component: <Customer/>},
+
+  //admin 
+  {path: "/admin/merchant", component: < Merchant/>},
  
  
 
