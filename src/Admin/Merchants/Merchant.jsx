@@ -26,6 +26,7 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { preventDefault } from "@fullcalendar/core";
+import { useNavigate } from "react-router-dom";
 
 
 const Merchant = () => {
@@ -52,6 +53,12 @@ const Merchant = () => {
         }
     }
 
+
+
+  const notify = () => toast.success("Data Added Successfully!");
+  const emptyData = () => toast.warn("Please fill out all the fields");
+  const emailExits = () => toast.error("User with this Email already exists!");
+  const navigate = useNavigate();
 
     const validation = useFormik({
         // enableReinitialize : use this flag when initial values needs to be changed
@@ -111,10 +118,12 @@ const Merchant = () => {
                 );
 
                 if (response.data.status === 200) {
+                    // console.log(response.data, "response");
                     notify(); // Call the notify function here
-                    console.log(notify, "==========>notify");
-                    navigate('/admin/merchant');
-                    console.log("success");
+                    resetForm();
+                    // navigate('/admin/merchant');
+                    handleClose();
+                   
                 } else if (response.data.status === 400) {
                     toast.error(response.data.error);
                     console.log("Error");
@@ -190,21 +199,20 @@ const Merchant = () => {
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <Label className="form-label">Image</Label>
-                                                    <Input
-                                                        // name="image"
+                                                    <input
+                                                        name="image"
                                                         type="file"
                                                         accept="image/*"
-                                                        // onChange={validation.handleChange}
-                                                        // onBlur={validation.handleBlur}
-                                                        // value={validation.values.image || ""}
-                                                        {...validation.getFieldProps("image")}
-                                                        invalid={
-                                                            validation.touched.image && validation.errors.image ? true : false
-                                                        }
+                                                        onChange={(event) => {
+                                                            validation.setFieldValue('image', event.currentTarget.files[0]);
+                                                        }}
+                                                        onBlur={validation.handleBlur}
+                                                        invalid={validation.touched.image && !!validation.errors.image}
                                                     />
-                                                    {validation.touched.image && validation.errors.image ? (
+                                                    {validation.touched.image && validation.errors.image && (
                                                         <FormFeedback type="invalid">{validation.errors.image}</FormFeedback>
-                                                    ) : null}
+                                                    )}
+
                                                 </div>
                                             </div>
 

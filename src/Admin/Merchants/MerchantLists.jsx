@@ -131,7 +131,7 @@ const MerchantLists = () => {
 
                                     <td>
                                         <div className="media-bx d-flex align-items-center">
-                                            <img className="me-3 rounded-circle" src={imageicon01} alt="images" />
+                                            <img className="me-3 rounded-circle" src={res.image} alt="images" />
                                         </div>
                                     </td>
 

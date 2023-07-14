@@ -112,6 +112,7 @@ const Register = props => {
         );
 
         if (response.data.status === 200) {
+          console.log(response)
           localStorage.setItem("SignupToken", response.data.token);
           notify(); // Call the notify function here
           console.log(notify, "==========>notify");
