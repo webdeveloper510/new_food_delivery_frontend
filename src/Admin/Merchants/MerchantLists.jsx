@@ -22,16 +22,16 @@ const MerchantLists = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
 
-    const notify = () => toast.success("Login Successfully!");
-    // const emptyData = () => toast.warn("Please fill out all the fields");
-    const emailExits = () => toast.error("User with this Email already exists!");
-
     /**************************************************************************
     * ************** Start  Recipient List ************************************
     * ***********************************************************************/
     useEffect(() => {
         axios
             .get(API.BASE_URL + 'admin/merchant/list', {
+                params: {
+                    limit: 100,
+                    page: 1,
+                },
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': loginToken,
@@ -40,13 +40,14 @@ const MerchantLists = () => {
             .then(function (response) {
                 setData(response.data.data);
                 setFilteredData(response.data.data);
-               
             })
             .catch(function (error) {
                 console.log(error);
                 console.log(error.response);
             });
     }, []);
+    
+    console.log(data, "=========>Data");
 
     const handleSearch = (e) => {
         const value = e.target.value.toLowerCase();
@@ -127,7 +128,6 @@ const MerchantLists = () => {
         hidePageListOnlyOnePage: true,
         onPageChange: (page, sizePerPage) => setCurrentPage(page),
     };
-
 
     return (
         <>

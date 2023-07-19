@@ -42,7 +42,7 @@ const Merchant = () => {
     const handleShow = () => setShow(true);
 
     /**********Image form data pass **********/
-   
+
     // const uploadFile = (event) => {
     //     if (event.target.files.length > 0) {
     //         const file = event.target.files[0];
@@ -75,10 +75,10 @@ const Merchant = () => {
 
 
 
-  const notify = () => toast.success("Data Added Successfully!");
-  const emptyData = () => toast.warn("Please fill out all the fields");
-  const emailExits = () => toast.error("User with this Email already exists!");
-  const navigate = useNavigate();
+    const notify = () => toast.success("Data Added Successfully!");
+    const emptyData = () => toast.warn("Please fill out all the fields");
+    const emailExits = () => toast.error("User with this Email already exists!");
+    const navigate = useNavigate();
 
     const validation = useFormik({
         // enableReinitialize : use this flag when initial values needs to be changed
@@ -143,7 +143,8 @@ const Merchant = () => {
                     resetForm();
                     // navigate('/admin/merchant');
                     handleCloseCard();
-                   
+                    window.location.reload();
+
                 } else if (response.data.status === 400) {
                     toast.error(response.data.error);
                     console.log("Error");
