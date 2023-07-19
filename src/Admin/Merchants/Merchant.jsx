@@ -142,7 +142,7 @@ const Merchant = () => {
                     notify(); // Call the notify function here
                     resetForm();
                     // navigate('/admin/merchant');
-                    handleClose();
+                    handleCloseCard();
                    
                 } else if (response.data.status === 400) {
                     toast.error(response.data.error);

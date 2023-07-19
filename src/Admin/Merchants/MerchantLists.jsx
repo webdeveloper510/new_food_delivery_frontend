@@ -38,15 +38,15 @@ const MerchantLists = () => {
                 },
             })
             .then(function (response) {
-                setData(response.data.listMerchants);
-                setFilteredData(response.data.listMerchants);
+                setData(response.data.data);
+                setFilteredData(response.data.data);
+               
             })
             .catch(function (error) {
                 console.log(error);
                 console.log(error.response);
             });
     }, []);
-
 
     const handleSearch = (e) => {
         const value = e.target.value.toLowerCase();
@@ -122,7 +122,7 @@ const MerchantLists = () => {
     ];
 
     const paginationOptions = {
-        sizePerPage: 5,
+        sizePerPage: 10,
         hideSizePerPage: true,
         hidePageListOnlyOnePage: true,
         onPageChange: (page, sizePerPage) => setCurrentPage(page),
